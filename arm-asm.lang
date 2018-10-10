@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Author: Alexandre SALMON
+-->
+<!DOCTYPE language SYSTEM "language.dtd">
+<language _name="ARM Assembly" version="1.0" _section="Sources" mimetypes="text/x-asm;text/x-assembler">
+	
+
+	<line-comment _name = "Line Comment" style= "Comment">
+		<start-regex>;|@|//</start-regex>
+	</line-comment>
+
+	<pattern-item _name = "Operators" style = "Keyword">
+		<regex>[-.,\+\*\/\(\)\{\}\[]|]</regex>
+	</pattern-item>
+
+	<pattern-item _name = "ImOperand" style = "Keyword">
+		<regex>\$[A-Za-z0-9_\-\+]*</regex>
+	</pattern-item>
+
+	<keyword-list _name = "Registers" style = "Data Type" case-sensitive="FALSE"
+		match-empty-string-at-beginning = "FALSE"
+		match-empty-string-at-end = "TRUE">
+		
+		<keyword>r0</keyword>
+		<keyword>r1</keyword>
+		<keyword>r2</keyword>
+		<keyword>r3</keyword>
+		<keyword>r4</keyword>
+		<keyword>r5</keyword>
+		<keyword>r6</keyword>
+		<keyword>r7</keyword>
+		<keyword>r8</keyword>
+		<keyword>r9</keyword>
+		<keyword>r10</keyword>
+		<keyword>r11</keyword>
+		<keyword>r12</keyword>
+		<keyword>r13</keyword>
+		<keyword>r14</keyword>
+		<keyword>r15</keyword>
+		<keyword>sp</keyword>
+		<keyword>lr</keyword>
+		<keyword>pc</keyword>
+	</keyword-list>
+
+	<keyword-list _name = "Instructions" style = "Keyword" case-sensitive="TRUE">
+		<keyword>b</keyword>
+		<keyword>beq</keyword>
+		<keyword>bne</keyword>
+		<keyword>bcs</keyword>
+		<keyword>bhs</keyword>
+		<keyword>bcc</keyword>
+		<keyword>blo</keyword>
+		<keyword>bmi</keyword>
+		<keyword>bpl</keyword>
+		<keyword>bvs</keyword>
+		<keyword>bvc</keyword>
+		<keyword>bhi</keyword>
+		<keyword>bls</keyword>
+		<keyword>bge</keyword>
+		<keyword>blt</keyword>
+		<keyword>bgt</keyword>
+		<keyword>ble</keyword>
+		<keyword>bal</keyword>
+		<keyword>bl</keyword>
+		<keyword>bg</keyword>
+
+
+		<keyword>mov</keyword>
+		<keyword>ror</keyword>
+		<keyword>rrx</keyword>
+		<keyword>movs</keyword>
+		<keyword>moveq</keyword>
+		<keyword>movlts</keyword>
+		<keyword>tst</keyword>
+		<keyword>teq</keyword>
+		<keyword>cmp</keyword>
+		<keyword>cmps</keyword>
+		<keyword>cmn</keyword>
+		<keyword>and</keyword>
+		<keyword>ands</keyword>
+		<keyword>eor</keyword>
+		<keyword>sub</keyword>
+		<keyword>rsb</keyword>
+		<keyword>rsbles</keyword>
+		<keyword>add</keyword>
+		<keyword>adc</keyword>
+		<keyword>mul</keyword>
+		<keyword>adc</keyword>
+		<keyword>sbc</keyword>
+		<keyword>rsc</keyword>
+		<keyword>orr</keyword>
+		<keyword>eors</keyword>
+		<keyword>biceq</keyword>
+		<keyword>bic</keyword>
+		<keyword>mvn</keyword>
+		<keyword>mvneq</keyword>
+		<keyword>ldr</keyword>
+		<keyword>ldrb</keyword>
+		<keyword>lsr</keyword>
+		<keyword>asr</keyword>
+		<keyword>strh</keyword>
+		<keyword>subgt</keyword>
+		<keyword>str</keyword>
+		<keyword>ldr</keyword>
+		<keyword>ldmda</keyword>
+		<keyword>ldmia</keyword>
+		<keyword>ldmdb</keyword>
+		<keyword>ldmib</keyword>
+		<keyword>ldmfa</keyword>
+		<keyword>ldmfd</keyword>
+		<keyword>ldmea</keyword>
+		<keyword>ldmed</keyword>
+		<keyword>stmda</keyword>
+		<keyword>stmia</keyword>
+		<keyword>stmdb</keyword>
+		<keyword>stmib</keyword>
+		<keyword>stmed</keyword>
+		<keyword>stmea</keyword>
+		<keyword>stmfd</keyword>
+		<keyword>stmfa</keyword>
+		<keyword>and</keyword>
+		<keyword>xor</keyword>
+		<keyword>not</keyword>
+		<keyword>or</keyword>
+		<keyword>bx</keyword>
+		<keyword>push</keyword>
+		<keyword>pop</keyword>
+		<keyword>bx</keyword>
+	</keyword-list>
+
+	<keyword-list _name = "Preprocessor Definitions" style = "Preprocessor" case-sensitive="TRUE">
+		<start-regex>"\."</start-regex>
+		<keyword>section</keyword>
+		<keyword>data</keyword>
+		<keyword>text</keyword>
+		<keyword>globl</keyword>
+		<keyword>global</keyword>
+		<keyword>byte</keyword>
+		<keyword>word</keyword>
+		<keyword>long</keyword>
+		<keyword>quad</keyword>
+		<keyword>ascii</keyword>
+		<keyword>asciz</keyword>
+		<keyword>fill</keyword>
+		<keyword>macro</keyword>
+		<keyword>endm</keyword>
+		<keyword>align</keyword>
+		<keyword>balign</keyword>
+		<keyword>hword</keyword>
+		<keyword>type</keyword>
+		<keyword>func</keyword>
+		<keyword>cpu</keyword>
+		<keyword>file</keyword>
+		<keyword>syntax</keyword>
+		<keyword>arm</keyword>
+		<keyword>fpu</keyword>
+		<keyword>size</keyword>
+		<keyword>ident</keyword>
+		<keyword>eabi_attribute</keyword>
+	</keyword-list>
+
+    <pattern-item _name = "Balise" style = "Function">
+		<regex>([a-z]|[A-Z]|[0-9]|_)+:</regex>
+	</pattern-item>
+
+    <pattern-item _name = "Character Constant" style = "String">
+		<regex>#|@|//</regex>
+	</pattern-item>
+
+	<pattern-item _name = "Decimal" style = "Decimal">
+		<regex>\b([1-9][0-9]*|0)([Uu]([Ll]|LL|ll)?|([Ll]|LL|ll)[Uu]?)?\b</regex>
+	</pattern-item>
+
+	<pattern-item _name = "Floating Point Number" style = "Floating Point">
+		<regex>\b([0-9]+[Ee][-]?[0-9]+|([0-9]*\.[0-9]+|[0-9]+\.)([Ee][-]?[0-9]+)?)[fFlL]?</regex>
+	</pattern-item>
+
+	<pattern-item _name = "Hex Number" style = "Base-N Integer">
+		<regex>\b0[xX][0-9a-fA-F]+([Uu]([Ll]|LL|ll)?|([Ll]|LL|ll)[Uu]?)?\b</regex>
+	</pattern-item>
+
+</language>
